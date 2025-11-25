@@ -14,7 +14,7 @@ export async function createLink(req: Request, res: Response) {
 
     const link = await urlService.createLink({ longUrl, customCode });
     console.log("link", link);
-    const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.BASE_URL || "http://localhost:5000"
 
     return res.status(201).json({
       message: "Shorten Url created successfully",
