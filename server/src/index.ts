@@ -1,22 +1,36 @@
-import express from "express"
+import express, { Request, Response } from "express"
 import cors from "cors"
+import dotenv from "dotenv"
+import { urlRoutes } from "./routes/urlRoutes";
+import {redirectToUrl} from "./controllers/urlControllers"
 
+dotenv.config()
 const app = express();
 const port = process.env.PORT || 5000;
 
-//cors config
+//Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'PROD' ? "" : "http://localhost:3000",
   credentials: true
 }))
 
-//express middleware
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-    res.send("tinyURL")
+//Health check endpoint
+app.get('/healthz', (req:Request, res: Response) => {
+    res.status(200).json({
+    ok: true,
+    version: '1.0',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
 })
+
+//URL routes 
+app.use('/api', urlRoutes)
+
+//redirect route
+app.get('/:code', redirectToUrl)
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`)
