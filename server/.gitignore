@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
+# Build output
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+pnpm-debug.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+
+
+# IDE folders
+.vscode/
+
+
+# Temporary files
+tmp/
+temp/
