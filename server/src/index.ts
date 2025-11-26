@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 
 //Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'PROD' ? "" : "http://localhost:3000",
+  origin: process.env.NODE_ENV === 'PROD' ? process.env.BASE_URL : "http://localhost:3000",
   credentials: true
 }))
 
