@@ -82,7 +82,7 @@ export class UrlService {
 
   //Delete link
   async deleteLink(shortCode: string): Promise<void> {
-    await prisma.shortenUrl.delete({
+    await prisma.shortenUrl.deleteMany({ //using deleteMany instead of delete because in prisma delete return an error if no record found. 
       where: { shortCode },
     });
   }

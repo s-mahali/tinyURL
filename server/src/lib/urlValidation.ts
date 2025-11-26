@@ -24,6 +24,12 @@ export function validateUrl(urlString: string): UrlValidationResult {
 //must be 3-8 alphanumeric characters [A-Za-z0-9]{3,8}
 
 export function validateShortCode(code: string): CodeValidationResult {
+  if (typeof code !== 'string'){
+     return {
+      valid: false, 
+      error: "code must be string"
+     }
+  }
   const trimmedCode = code.trim();
   if (trimmedCode.length > 8) {
     return { valid: false, error: "Short code must be at most 8 chars" };
@@ -32,7 +38,7 @@ export function validateShortCode(code: string): CodeValidationResult {
   if (!codePattern.test(trimmedCode)) {
     return {
       valid: false,
-      error: "Short code must contain only letters and numbers (A-Z, a-z, 0-9)",
+      error: "Short code must be 3-8 char long and  contain only letters and numbers (A-Z, a-z, 0-9)",
     };
   }
 
