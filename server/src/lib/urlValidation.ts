@@ -38,7 +38,7 @@ export function validateShortCode(code: string): CodeValidationResult {
   if (!codePattern.test(trimmedCode)) {
     return {
       valid: false,
-      error: "Short code must be 3-8 char long and  contain only letters and numbers (A-Z, a-z, 0-9)",
+      error: "Short code must be 3-8 char long and contain only letters and numbers (A-Z, a-z, 0-9)",
     };
   }
 

@@ -5,15 +5,15 @@ import { CreateLinkInput } from "../types";
 // POST: api/link create a link
 export async function createLink(req: Request, res: Response) {
   try {
-    const { longUrl, customCode } = req.body;
+    const { longUrl, code } = req.body;
     if (!longUrl) {
       return res
         .status(400)
         .json({ error: "longUrl is required", message: false });
     }
 
-    const link = await urlService.createLink({ longUrl, customCode });
-    console.log("link", link);
+    const link = await urlService.createLink({ longUrl, customCode: code });
+    
     const baseUrl = process.env.BASE_URL || "http://localhost:5000"
 
     return res.status(201).json({
