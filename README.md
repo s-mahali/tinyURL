@@ -5,6 +5,7 @@ TinyUrl is a simple URL shortening service with a minimal frontend and a TypeScr
 Live demo
 - Backend: https://tinyurl-00zi.onrender.com
 - Frontend: https://tiny-url-six-sand.vercel.app/
+NOTE: For First request to response, initially it might take some time to response because render automatically shut if no request hit on server till 15 min.
 
 Tech stack
 - Backend: Node.js, Express.js, TypeScript
