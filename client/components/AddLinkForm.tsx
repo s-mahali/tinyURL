@@ -23,7 +23,7 @@ export default function AddLinkForm({ onSuccess }: AddLinkFormProps) {
     try {
       await createLink({
         longUrl,
-        customCode: customCode || undefined,
+        code: customCode || undefined,
       });
       setSuccess(true);
       setLongUrl("");

@@ -18,7 +18,7 @@ export interface CreateLinkResponse {
 
 export interface CreateLinkInput {
   longUrl: string;
-  customCode?: string;
+  code?: string;
 }
 
 export interface ApiError {

@@ -9,10 +9,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'PROD' ? process.env.BASE_URL : "http://localhost:3000",
-  credentials: true
-}))
+const corsOptions = {
+  origin: [process.env.BASE_URL || 'http://localhost:3000'],
+  credentials: true,
+};   
+app.use(cors(corsOptions))
+console.log("nodeenv", process.env.BASE_URL, process.env.NODE_ENV)
 
 app.use(express.json())
 

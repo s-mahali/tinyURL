@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.0.1",
   "engineVersion": "f09f2815f091dbba658cdcd2264306d88bb5bda6",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider   = \"prisma-client\"\n  output     = \"./generated/prisma\"\n  engineType = \"binary\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel ShortenUrl {\n  id            Int       @id @default(autoincrement())\n  longUrl       String\n  shortCode     String    @unique\n  clickCount    Int       @default(0)\n  lastClickedAt DateTime?\n  createdAt     DateTime  @default(now())\n\n  @@index([shortCode]) //Fast lookup for redirects\n}\n",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"./generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel ShortenUrl {\n  id            Int       @id @default(autoincrement())\n  longUrl       String\n  shortCode     String    @unique\n  clickCount    Int       @default(0)\n  lastClickedAt DateTime?\n  createdAt     DateTime  @default(now())\n\n  @@index([shortCode]) //Fast lookup for redirects\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
